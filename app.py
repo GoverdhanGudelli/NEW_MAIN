@@ -28,8 +28,8 @@ def load_pipeline():
         documents.extend(loader.load())
 
     splitter = RecursiveCharacterTextSplitter(
-        chunk_size=800,
-        chunk_overlap=150,
+        chunk_size=600,
+ chunk_overlap=200,
         separators=["\n\n", "\n", ".", " "]
     )
     chunks = splitter.split_documents(documents)
@@ -40,7 +40,7 @@ def load_pipeline():
     vectorstore = FAISS.from_documents(chunks, embeddings)
     retriever = vectorstore.as_retriever(
         search_type="mmr",
-        search_kwargs={"k": 5, "fetch_k": 15}
+        search_kwargs={"k": 7, "fetch_k": 20}
     )
 
     llm = ChatGroq(
@@ -53,7 +53,8 @@ def load_pipeline():
         ("system", """You are an HR assistant for Zyro Dynamics Pvt. Ltd.
 Answer ONLY using the provided context from HR policy documents.
 If context does not contain the answer, say you don't have that information.
-Be concise, accurate and professional.
+Be accurate and professional.Answer in detail with specific numbers, dates, 
+and policy names from the context."
 
 Context:
 {context}"""),
