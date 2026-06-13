@@ -16,6 +16,32 @@ st.set_page_config(page_title="Zyro HR Help Desk", page_icon="🏢")
 st.title("🏢 Zyro Dynamics HR Help Desk")
 st.caption("Ask me anything about Zyro Dynamics HR policies")
 
+# ← Add sidebar here
+with st.sidebar:
+    st.header("📋 About")
+    st.write("Zyro Dynamics HR Help Desk")
+    st.write("Powered by RAG + LLaMA 3.3")
+    st.divider()
+    st.write("**Available Policies:**")
+    policies = [
+        "📄 Employee Handbook",
+        "🏖️ Leave Policy",
+        "🏠 Work From Home",
+        "⚖️ Code of Conduct",
+        "📊 Performance Review",
+        "💰 Compensation & Benefits",
+        "🔒 IT & Data Security",
+        "🛡️ POSH Policy",
+        "✈️ Travel & Expense",
+        "🚀 Onboarding & Separation"
+    ]
+    for p in policies:
+        st.write(p)
+    
+    if st.button("🗑️ Clear Chat"):
+        st.session_state.messages = []
+        st.rerun()
+
 @st.cache_resource(show_spinner="📚 Building knowledge base...")
 def load_pipeline():
     os.environ["LANGCHAIN_TRACING_V2"] = "true"
