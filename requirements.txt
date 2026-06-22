@@ -2,7 +2,6 @@ langchain
 langchain-community
 langchain-core
 langchain-text-splitters
-langsmith
 langchain-huggingface
 langchain-groq
 langchain-google-genai
@@ -15,6 +14,7 @@ torch
 huggingface-hub
 groq
 streamlit
+langsmith
 python-dotenv
 tiktoken
 rank-bm25
