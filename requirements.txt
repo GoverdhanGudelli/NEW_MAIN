@@ -15,7 +15,6 @@ torch==2.2.0
 huggingface-hub==0.20.1
 groq==0.9.0
 streamlit==1.40.0
-langsmith==0.1.67
 python-dotenv==1.0.0
 tiktoken==0.6.0
 rank-bm25==0.2.2
