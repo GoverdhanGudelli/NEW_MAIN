@@ -28,8 +28,8 @@ RETRIEVAL_FETCH_K = 20
 
 @st.cache_resource(show_spinner="Building knowledge base...")
 def load_pipeline():
-    os.environ["LANGCHAIN_TRACING_V2"] = "true"
-    os.environ["LANGCHAIN_PROJECT"] = "zyro-rag-challenge"
+    os.environ["LANGCHAIN_TRACING_V2"] = "false"
+    # os.environ["LANGCHAIN_PROJECT"] = "zyro-rag-challenge"
 
     PDF_DIR = "data/"
     documents = []
